@@ -1,14 +1,14 @@
-from sqlalchemy import Column, Integer, String, DateTime, ForeignKey
-from sqlalchemy.orm import relationship
+from sqlalchemy import Column, Integer, String, DateTime, ForeignKey, Text, func
+from sqlalchemy.orm import relationship, declarative_base
 from sqlalchemy.sql import func
 
-from .database import Base
+Base=declarative_base()
 
 class Regulation(Base):
     __tablename__ = "regulations"
 
     id = Column(Integer, primary_key=True, index=True)
-    title = Column(String, index=True)
+    source_filename = Column(String, index=True)
     establishment_date = Column(DateTime)
     revision_date = Column(DateTime)
     department = Column(String)
@@ -23,7 +23,7 @@ class Article(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     title = Column(String, index=True)
-    content = Column(String)
+    content = Column(Text)
     regulation_id = Column(Integer, ForeignKey("regulations.id"))
 
     regulation = relationship("Regulation", back_populates="articles")
