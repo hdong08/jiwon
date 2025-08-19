@@ -1,4 +1,4 @@
-# Jiwon Regulation Uploader
+# Jiwon Regulation 
 
 ## 프로젝트 개요
 - 한국 법령 및 사규 문서를 업로드하고 조문 단위로 검색/조회 가능한 FastAPI 기반 백엔드 프로젝트
